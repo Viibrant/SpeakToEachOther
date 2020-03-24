@@ -1,6 +1,3 @@
-# pogwebsite
-pog the website
-
-created by conco and hen
-
-cum COKC
+Peer to peer VoIP website using PeerJS
+======
+[PeerJS](https://peerjs.com/ "PeerJS")
