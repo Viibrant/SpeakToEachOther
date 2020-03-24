@@ -1,6 +1,7 @@
 var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
-function call(id) {
+function callClicked() {
+    var id = $("exampleKey1").text();
     getUserMedia({ video: true, audio: true }, function (stream) {
         var call = peer.call(id, stream);
         call.on('stream', function (remoteStream) {
@@ -11,7 +12,8 @@ function call(id) {
     });
 }
 
-function answer(id) {
+function answerClicked() {
+    var id = $("exampleKey1").text();
     peer.on('call', function (call) {
         getUserMedia({ video: true, audio: true }, function (stream) {
             call.answer(id); 
@@ -23,3 +25,4 @@ function answer(id) {
         });
     });
 }
+
