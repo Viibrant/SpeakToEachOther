@@ -1,7 +1,7 @@
 var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 
 function callClicked() {
-    var id = $("exampleKey1").text();
+    var id = $("peerID").text();
     console.log("Making call with id: ", id);
     getUserMedia({
         video: true,
@@ -9,7 +9,7 @@ function callClicked() {
     }, function (stream) {
         var call = peer.call(id, stream);
         call.on('stream', function (remoteStream) {
-            // video/canvas element here do a thing something i dont know
+            console.log("streaming initialised");
         });
     }, function (err) {
         console.log('heck', err);
@@ -17,7 +17,7 @@ function callClicked() {
 }
 
 function answerClicked() {
-    var id = $("exampleKey1").text();
+    var id = $("peerID").text();
     console.log("Answering call with id: ", id);
     peer.on('call', function (call) {
         getUserMedia({
